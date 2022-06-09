@@ -19,7 +19,11 @@ def File_Mover():
     for x,y,z in os.walk(source):
         if delete == 1:
             for i in y:
-                shutil.rmtree(os.path.join(x,i))
+                    try:
+                        shutil.rmtree(os.path.join(x,i))
+                    except:
+                        pass
+                    
         return "Thanks for using the file mover!"
     return "Thanks for using the file mover!"
 
