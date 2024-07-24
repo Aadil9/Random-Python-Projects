@@ -1,0 +1,98 @@
+v1:
+#this is a differential calculator - or at least an attempt
+#currently it can only do 1digit,1variable and a 1digit power
+
+v2:
+#below is me working on any number of digits before and after the variable x
+#this one works for any digits beore the variable but not for the more than 1 digit powers
+#I don't know why it doesn't work for more than 1digit powers. Even if i can fix it, the best case scenario is 2 digits. 
+#That's not good enough
+
+v3:
+#Could probably try to get it to work universally with numbers using if/if else/else statements instead of trys
+#works with if statements
+#Differential Calc now works for 1 expression
+#can't do negatives lol
+#I think the next step might be to remove the input function. Altough its useful, stringing integers first may not be the best way to do this.
+#Although, I'm not sure how I would include the variable x. If x was included in the function (e.g. diff(12x)) python would automatically consider this a string
+#Without raw integers, negatives and positives can't be distinguished without a lot more work.
+
+#For now I'm thinking leave it as inputs, split by [-,+] (will need more thought for * and /) and then do an if + while loop on c being at 2 elements max. 
+#This wont work for multiple expressions yet as C will probably need to be a list and negative integers will get split out too
+#better yet, will have to create for loops for new "c" string holder variables depending on the number of items in the split list, then add those new "c"s depending
+#on where we're at in the
+
+#Could ask users to input their variable, input their coefficients, input their powers and input whether there's more than 1 expression or not.
+#This would heavily simplify the process, and this way I could int() the numbers without the trouble
+
+#Currently still unsure about what to do for quotient rule, chain rule, product rule, logs, natural logs, trigonometric functions
+
+v4:
+#Decided to go with inputting variables, coefficients and powers to make up the expression myself
+#currently just trying for 1 term that is not a constant
+#and perhaps only positive? maybe negative ints as well
+#I got ahead of the curve a little and float'd insteading of int'ing
+#There's a way to make a superscript map to help actually write out powers, but that's not important right now:https://stackoverflow.com/questions/8651361/how-do-you-print-superscript-in-python
+
+#Below works for 1 term with positive and negative floats, with 1 variable and any digits - huge success
+#can build on this for added features
+#need to work on e's, natural logs and trig functions next
+
+#The thing about trig functions is that the math module has the trig functions already.
+#However, the math module probably also just has a derivative calculator. 
+#The question is: am I allowed to use the math module or should I create the trig functions like just like the derivative calculator?
+
+#taylor series?
+#will need to be able to differentiate multiple expressions for that
+
+v5:
+#can't split across operators, will probably just ask to input however many expressions
+#need to somehow need to make it so that my formula ask for expressions the same amount of times as the integer entered by user
+#i.e. if terms = 3, the formula needs to ask for 3 different expressions
+#successfully made it so that it can differentiate multiple terms
+#Need to remember to make sure to set up error catches: variable not being a string, coefficient and power having letters, terms not being a string, etc
+#Need to make it so that in generating the final answer the for loop can detect whether or not to put a +, or if there is a -, turn the term into a - 
+
+v6:
+#need to add a few try/except conditions for variables/integers/strings
+#now ready to convert sin,cos,tan into taylor series
+#added a condition for if the coefficient to the variable is 0
+#it's already able to do fractions
+
+#need to make the taylor series sum iterable
+#start with cosx
+#maybe make it its own function?
+#can't do a sum, it must be an expression so that each term can be differentiated
+#currently, the big problem is doing a factorial - sum(range()) doesnt work 
+#I don't want to have to use the math module, but there's no product function. make a special exception?
+
+#currently, the big problem is doing a factorial - I don't want to have to use the math module, but there's no product function. make a special exception?
+#if I import Math, there's no significance to me making a function for cos with the taylor series cause I can just use the cos fucntion in math 
+#multiplication of 2 numbers n and m, is just adding n by m of amount of times
+#multiplication of 3 numbers n, m and p is just adding n by by m amount of times then the product of that by p times
+#this wouldn't be a big deal if there weren't 2 sets of variables. {N} -> the number of numbers to multiply, and {n} -> the numbers themselves
+#and {N} = count({n}) or |{n}| or the cardinality of {n}, so really, there's only 1 variable to consider
+
+#all of the above didn't help with this task, as I didn't realise you can write *= and its basically a sumproduct() function - but its interesting thinking
+
+#Got factorials to work, need to sort out the factorial integration
+#Currently, the problem is that the facotorial() function starts from the beginning for every i
+#therefore always giving the biggest number factorial divising each element of the list
+#probably need to remove the factorial function and instead create facto in the for loop
+
+#factorial needs to only be factorial even numbers - in the same loop as the coefficient assigning loop?
+#couple ways i can do this - append 2*terms2 to a list and pick only the even entries, etc
+#however, I'd rather avoid list based work here if possible - I'd rather it be cleaner
+#don't think it's possible yet, or I'm unsure how to do it, so I'm going with the list option with 2 for loops :(
+
+#Signage and cos taylor series is correct except for 0 somehow, need to look into that next
+#doesnt work for 0 because 2*1-1 = -1 and =/= 0 - fixed
+#need to make sure the output can add a + or - depending on sign, might need to change where the cos variable is
+#could probably make this way more efficient and neat
+
+#Done with cosx from the taylor series
+
+
+
+
+
